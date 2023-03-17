@@ -354,7 +354,6 @@ name = "apps_frontend_design_sys"
 version = "0.1.0"
 dependencies = [
  "apps_frontend_package_ui",
- "apps_shared",
  "stylist",
  "yew",
 ]
