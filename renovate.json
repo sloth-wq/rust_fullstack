@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "group:allNonMajor"
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "schedule": [
+    "before 8am on Tuesday"
+  ],
+  "timezone": "Asia/Tokyo",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
+  "masterIssue": true
+}

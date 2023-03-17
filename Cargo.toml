@@ -1,0 +1,23 @@
+[package]
+name = "bas_project"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "apps/backend",
+    "apps/frontend/admin",
+    "apps/frontend/design_sys",
+    "apps/frontend/employee",
+    "apps/frontend/package/ui",
+    "apps/shared",
+    "migration",
+    "batch",
+]
+
+[[bin]]
+name = "bas_project"
+path = "tool/main.rs"
+
+[dependencies]
+cargo-husky = "1.5.0"
