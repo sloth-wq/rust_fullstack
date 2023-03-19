@@ -81,7 +81,7 @@ pub mod layout {
         let content_style = style!(
             r#"
             margin-left: 240px;
-            padding: 80px 320px;
+            padding: 40px 80px;
         "#
         )
         .expect("Failed to mount style");
