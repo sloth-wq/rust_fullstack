@@ -1,4 +1,5 @@
 use crate::layout::layout::DefaultLayout;
+use apps_frontend_package_ui::typography::{Tag, Typography};
 use yew::prelude::{function_component, html, Html};
 
 #[function_component(Home)]
@@ -6,8 +7,7 @@ pub fn home() -> Html {
     html!(
         <>
             <DefaultLayout>
-                <h1>{"Getting Started"}</h1>
-                <p>{"Welcome to Design System!"}</p>
+                <Typography value={"Welcome to Design System!"} tag={Tag::H1} />
             </DefaultLayout>
         </>
     )

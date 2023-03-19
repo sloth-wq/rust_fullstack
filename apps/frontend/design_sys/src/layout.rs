@@ -65,7 +65,7 @@ pub mod layout {
             position: absolute;
             top: 0;
             left: 0;
-            background-color: #1976d2;
+            background-color: #003EE5;
             color: #fff;
             height: 64px;
             width: 100%;
