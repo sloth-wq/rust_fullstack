@@ -1,3 +1,14 @@
+enum DateType {
+    YYYYMMDDHHIISS,
+    YYYYMMDDHHII,
+    YYYYMMDDHH,
+    YYYYMMDD,
+}
+
+struct A {
+    a: dyn Fn(String) -> String
+}
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }

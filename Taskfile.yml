@@ -19,7 +19,7 @@ tasks:
   run:design_sys:
     desc: デザインシステムを立ち上げる.
     cmds:
-      - trunk serve apps/frontend/design_sys/index.html --port 4001 -w apps/frontend/design_sys -w apps/shared -w apps/frontend/package
+      - trunk serve apps/frontend/design_sys/index.html --port 4002 -w apps/frontend/design_sys -w apps/shared -w apps/frontend/package
 
   run:backend:
     desc: API環境を立ち上げる.
