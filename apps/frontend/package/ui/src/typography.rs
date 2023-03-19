@@ -1,6 +1,5 @@
 use stylist::{style, yew::styled_component, Style};
-use yew::prelude::{html, Callback, Html, Properties};
-use yew::MouseEvent;
+use yew::prelude::{html, Html, Properties};
 
 #[derive(PartialEq, Debug)]
 pub enum Tag {

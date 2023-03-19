@@ -1,7 +1,6 @@
 use crate::layout::layout::DefaultLayout;
 use apps_frontend_package_ui::app_button::{AppButton, Size, Variant};
 use gloo::dialogs::alert;
-use stylist::{style, Style};
 use yew::prelude::{function_component, html, Html};
 
 #[function_component(AppButtonPage)]

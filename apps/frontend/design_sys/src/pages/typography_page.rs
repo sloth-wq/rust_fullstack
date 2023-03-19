@@ -1,7 +1,5 @@
 use crate::layout::layout::DefaultLayout;
 use apps_frontend_package_ui::typography::{Color, Tag, Typography};
-use gloo::dialogs::alert;
-use stylist::{style, Style};
 use yew::prelude::{function_component, html, Html};
 
 #[function_component(TypographyPage)]
