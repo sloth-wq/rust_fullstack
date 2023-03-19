@@ -180,8 +180,8 @@ pub struct Props {
     pub color: Option<Color>,
 }
 
-#[styled_component(Typography)]
-pub fn typography(Props { value, tag, color }: &Props) -> Html {
+#[styled_component(AppTypography)]
+pub fn app_typography(Props { value, tag, color }: &Props) -> Html {
     let color_style = match color {
         Some(color) => color,
         None => &Color::Black,
