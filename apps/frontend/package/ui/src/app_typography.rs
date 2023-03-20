@@ -166,7 +166,7 @@ impl Color {
             ),
             Color::Gray => style!(
                 r#"
-                    color: gray;
+                    color: #949497;
                 "#
             ),
         }
