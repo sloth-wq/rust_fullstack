@@ -16,6 +16,11 @@ pub fn app_typography_page() -> Html {
                 </AppBox>
 
                 <AppBox>
+                    <AppTypography value="Description" tag={Tag::H2} />
+                    <AppTypography value="None" tag={Tag::P} color={Color::Gray} />
+                </AppBox>
+
+                <AppBox>
                     <AppTypography value="Usage" tag={Tag::H2} />
                 </AppBox>
 

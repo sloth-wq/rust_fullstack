@@ -5,6 +5,7 @@ use yew::{function_component, Children};
 
 #[derive(PartialEq)]
 pub enum Spacing {
+    None,
     One,
     Two,
     Three,
@@ -18,6 +19,7 @@ pub enum Spacing {
 impl Spacing {
     fn style(&self) -> Result<Style, stylist::Error> {
         match self {
+            Spacing::None => style!(r#""#),
             Spacing::One => style!(r#"gap: 8px;"#),
             Spacing::Two => style!(r#"gap: 16px;"#),
             Spacing::Three => style!(r#"gap: 24px;"#),
@@ -51,9 +53,9 @@ impl JustifyContent {
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
-    pub spacing: Spacing,
-    pub children: Children,
+    pub spacing: Option<Spacing>,
     pub justify_content: Option<JustifyContent>,
+    pub children: Children,
 }
 
 // 横並び.
@@ -61,12 +63,17 @@ pub struct Props {
 pub fn h_stack(
     Props {
         spacing,
-        children,
         justify_content,
+        children,
     }: &Props,
 ) -> Html {
     let container_style = style!(r#"display: flex;"#).expect("Failed to mount style");
-    let spacing_style = spacing.style().expect("Failed to mount style");
+    let spacing_style = match spacing {
+        Some(v) => v,
+        None => &Spacing::None,
+    }
+    .style()
+    .expect("Failed to mount style");
     let justify_content_style = match justify_content {
         Some(jc) => jc,
         None => &JustifyContent::Center,
@@ -99,7 +106,12 @@ pub fn v_stack(
     "#
     )
     .expect("Failed to mount style");
-    let spacing_style = spacing.style().expect("Failed to mount style");
+    let spacing_style = match spacing {
+        Some(v) => v,
+        None => &Spacing::None,
+    }
+    .style()
+    .expect("Failed to mount style");
     let justify_content_style = match justify_content {
         Some(jc) => jc,
         None => &JustifyContent::Center,
