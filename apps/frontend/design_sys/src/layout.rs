@@ -13,7 +13,7 @@ pub mod layout {
 
     #[function_component(DefaultLayout)]
     pub fn default_layout(Props { children }: &Props) -> Html {
-        let link_items = ["AppButton", "AppTypography", "Stack"];
+        let link_items = ["AppButton", "AppTypography", "Stack", "AppBox"];
 
         let sidebar_style = style!(
             r#"
