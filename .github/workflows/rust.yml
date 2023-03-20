@@ -30,7 +30,7 @@ jobs:
       - name: Get Rust toolchain version
         id: rust-toolchain
         run: |
-          VERSION=`rust-toolchain`
+          VERSION=`cat rust-toolchain`
           echo ::set-output name=value::$VERSION
       - uses: ./.github/actions/cache_cargo
       - name: Install Rust toolchain
