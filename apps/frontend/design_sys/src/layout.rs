@@ -18,7 +18,7 @@ pub mod layout {
             "AppTypography",
             "Stack",
             "AppBox",
-            "StringInput",
+            "AppInput",
         ];
 
         let sidebar_style = style!(

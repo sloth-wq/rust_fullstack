@@ -23,7 +23,7 @@ pub fn app_input_page() -> Html {
                 .unchecked_into::<HtmlInputElement>()
                 .value();
 
-            _handler.set(value)
+            _handler.set(value);
         })
     };
 
@@ -82,7 +82,7 @@ pub fn app_input_page() -> Html {
                                 <AppTypography value="Type" tag={Tag::H3} />
                                 <AppTypography value="Html input type ( default text )" tag={Tag::P} color={Color::Gray} />
                                 <AppBox>
-                                    <AppInput on_input={callback1.clone()} />
+                                    <AppInput value={"".to_string()} on_input={callback1.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler1}
@@ -92,14 +92,14 @@ pub fn app_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Disabled" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput disabled={true} on_input={callback1.clone()} />
+                                    <AppInput value={"".to_string()} disabled={true} on_input={callback1.clone()} />
                                 </AppBox>
                             </AppBox>
 
                             <AppBox>
                                 <AppTypography value="Placeholder" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
+                                    <AppInput value={"".to_string()} placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler2}
@@ -109,7 +109,7 @@ pub fn app_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Error" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput is_error={true} on_input={callback3.clone()} />
+                                    <AppInput value={"".to_string()} is_error={true} on_input={callback3.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler3}

@@ -15,6 +15,7 @@ pub enum Type {
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
+    pub value: String,
     pub _type: Option<Type>,
     pub disabled: Option<bool>,
     pub required: Option<bool>,
@@ -26,6 +27,7 @@ pub struct Props {
 #[function_component(AppInput)]
 pub fn app_input(
     Props {
+        value,
         _type,
         disabled,
         required,
@@ -90,6 +92,7 @@ pub fn app_input(
     html! {
         <input
             class={vec!(error_style, style)}
+            value={value.clone()}
             type={__type.to_string()}
             disabled={*_disabled}
             required={*_required}
