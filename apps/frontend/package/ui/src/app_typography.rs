@@ -176,18 +176,15 @@ impl Color {
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub value: String,
+    #[prop_or(Tag::P)]
     pub tag: Tag,
-    pub color: Option<Color>,
+    #[prop_or(Color::Black)]
+    pub color: Color,
 }
 
 #[styled_component(AppTypography)]
 pub fn app_typography(Props { value, tag, color }: &Props) -> Html {
-    let color_style = match color {
-        Some(color) => color,
-        None => &Color::Black,
-    }
-    .style()
-    .expect("Failed to mount style");
+    let color_style = color.style().unwrap();
 
     tag.element(value, color_style)
 }

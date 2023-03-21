@@ -100,11 +100,16 @@ impl Padding {
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
-    pub background_color: Option<BackgroundColor>,
-    pub pt: Option<Padding>,
-    pub pb: Option<Padding>,
-    pub pr: Option<Padding>,
-    pub pl: Option<Padding>,
+    #[prop_or(BackgroundColor::White)]
+    pub background_color: BackgroundColor,
+    #[prop_or(Padding::None)]
+    pub pt: Padding,
+    #[prop_or(Padding::None)]
+    pub pb: Padding,
+    #[prop_or(Padding::None)]
+    pub pr: Padding,
+    #[prop_or(Padding::None)]
+    pub pl: Padding,
     pub children: Children,
 }
 
@@ -119,46 +124,16 @@ pub fn app_box(
         children,
     }: &Props,
 ) -> Html {
-    let background_color_style = match background_color {
-        Some(bc) => bc,
-        None => &BackgroundColor::White,
-    }
-    .style()
-    .expect("Failed to mount style");
+    let background_color_style = background_color.style().unwrap();
 
-    let pt_style = match pt {
-        Some(v) => v,
-        None => &Padding::None,
-    }
-    .pt_style()
-    .expect("Failed to mount style");
-
-    let pb_style = match pb {
-        Some(v) => v,
-        None => &Padding::None,
-    }
-    .pb_style()
-    .expect("Failed to mount style");
-
-    let pr_style = match pr {
-        Some(v) => v,
-        None => &Padding::None,
-    }
-    .pr_style()
-    .expect("Failed to mount style");
-
-    let pl_style = match pl {
-        Some(v) => v,
-        None => &Padding::None,
-    }
-    .pl_style()
-    .expect("Failed to mount style");
+    let pt_style = pt.pt_style().unwrap();
+    let pb_style = pb.pb_style().unwrap();
+    let pr_style = pr.pr_style().unwrap();
+    let pl_style = pl.pl_style().unwrap();
 
     html! {
-        <>
-            <div class={vec!(background_color_style, pt_style, pb_style, pr_style, pl_style)}>
-                { for children.iter() }
-            </div>
-        </>
+        <div class={vec!(background_color_style, pt_style, pb_style, pr_style, pl_style)}>
+            { for children.iter() }
+        </div>
     }
 }

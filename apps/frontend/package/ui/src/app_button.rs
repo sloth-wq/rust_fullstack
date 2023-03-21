@@ -1,8 +1,17 @@
+use strum_macros::{self, Display};
 use stylist::{style, yew::styled_component, Style};
 use yew::prelude::{html, Callback, Html, Properties};
 use yew::MouseEvent;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Display)]
+pub enum Type {
+    #[strum(serialize = "button")]
+    Button,
+    #[strum(serialize = "submit")]
+    Submit,
+}
+
+#[derive(PartialEq)]
 pub enum Size {
     Large,
     Medium,
@@ -104,9 +113,14 @@ impl Variant {
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub name: String,
-    pub size: Option<Size>,
-    pub variant: Option<Variant>,
-    pub disabled: Option<bool>,
+    #[prop_or(Type::Button)]
+    pub _type: Type,
+    #[prop_or(Size::Medium)]
+    pub size: Size,
+    #[prop_or(Variant::Primary)]
+    pub variant: Variant,
+    #[prop_or_default]
+    pub disabled: bool,
     pub on_click: Callback<MouseEvent>,
 }
 
@@ -114,30 +128,16 @@ pub struct Props {
 pub fn app_button(
     Props {
         name,
+        _type,
         size,
         variant,
         disabled,
         on_click,
     }: &Props,
 ) -> Html {
-    let size_style = match size {
-        Some(size) => size,
-        None => &Size::Small,
-    }
-    .style()
-    .expect("Failed to mount style");
+    let size_style = size.style().unwrap();
 
-    let variant_style = match variant {
-        Some(variant) => variant,
-        None => &Variant::Primary,
-    }
-    .style()
-    .expect("Failed to mount style");
-
-    let _disabled = match disabled {
-        Some(disabled) => disabled,
-        None => &false,
-    };
+    let variant_style = variant.style().unwrap();
 
     let base_style = style!(
         r#"
@@ -155,13 +155,13 @@ pub fn app_button(
         font-weight: bold;
     "#
     )
-    .expect("Failed to mount style");
+    .unwrap();
 
     html! {
         <input
             class={vec![base_style, size_style, variant_style]}
-            disabled={*_disabled}
-            type="button"
+            disabled={*disabled}
+            type={_type.to_string()}
             value={name.clone()}
             onclick={on_click.clone()}
         />

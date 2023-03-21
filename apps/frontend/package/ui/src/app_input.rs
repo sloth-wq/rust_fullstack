@@ -16,11 +16,16 @@ pub enum Type {
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub value: String,
-    pub _type: Option<Type>,
-    pub disabled: Option<bool>,
-    pub required: Option<bool>,
-    pub is_error: Option<bool>,
-    pub placeholder: Option<String>,
+    #[prop_or(Type::Text)]
+    pub _type: Type,
+    #[prop_or_default]
+    pub disabled: bool,
+    #[prop_or_default]
+    pub required: bool,
+    #[prop_or_default]
+    pub is_error: bool,
+    #[prop_or_default]
+    pub placeholder: String,
     pub on_input: Callback<InputEvent>,
 }
 
@@ -60,42 +65,24 @@ pub fn app_input(
     )
     .unwrap();
 
-    let __type = match _type {
-        Some(v) => v,
-        None => &Type::Text,
-    };
-
-    let _disabled = match disabled {
-        Some(v) => v,
-        None => &false,
-    };
-
-    let _required = match required {
-        Some(v) => v,
-        None => &false,
-    };
-
     let error_style = match is_error {
-        Some(v) => match v {
-            &true => style!(
-                r#"
-                border: red 1.5px solid;
-                outline: red;
-            "#
-            )
-            .unwrap(),
-            &false => style!(r#""#).unwrap(),
-        },
-        None => style!(r#""#).unwrap(),
+        &true => style!(
+            r#"
+            border: red 1.5px solid;
+            outline: red;
+        "#
+        )
+        .unwrap(),
+        &false => style!(r#""#).unwrap(),
     };
 
     html! {
         <input
             class={vec!(error_style, style)}
             value={value.clone()}
-            type={__type.to_string()}
-            disabled={*_disabled}
-            required={*_required}
+            type={_type.to_string()}
+            disabled={*disabled}
+            required={*required}
             placeholder={placeholder.clone()}
             oninput={on_input.clone()}
         />

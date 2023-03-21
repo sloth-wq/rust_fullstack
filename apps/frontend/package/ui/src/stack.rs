@@ -53,8 +53,10 @@ impl JustifyContent {
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
-    pub spacing: Option<Spacing>,
-    pub justify_content: Option<JustifyContent>,
+    #[prop_or(Spacing::None)]
+    pub spacing: Spacing,
+    #[prop_or(JustifyContent::Center)]
+    pub justify_content: JustifyContent,
     pub children: Children,
 }
 
@@ -67,26 +69,14 @@ pub fn h_stack(
         children,
     }: &Props,
 ) -> Html {
-    let container_style = style!(r#"display: flex;"#).expect("Failed to mount style");
-    let spacing_style = match spacing {
-        Some(v) => v,
-        None => &Spacing::None,
-    }
-    .style()
-    .expect("Failed to mount style");
-    let justify_content_style = match justify_content {
-        Some(jc) => jc,
-        None => &JustifyContent::Center,
-    }
-    .style()
-    .expect("Failed to mount style");
+    let container_style = style!(r#"display: flex;"#).unwrap();
+    let spacing_style = spacing.style().unwrap();
+    let justify_content_style = justify_content.style().unwrap();
 
     html! {
-        <>
-            <div class={vec!(container_style, spacing_style, justify_content_style)}>
-                { for children.iter() }
-            </div>
-        </>
+        <div class={vec!(container_style, spacing_style, justify_content_style)}>
+            { for children.iter() }
+        </div>
     }
 }
 
@@ -106,24 +96,12 @@ pub fn v_stack(
     "#
     )
     .expect("Failed to mount style");
-    let spacing_style = match spacing {
-        Some(v) => v,
-        None => &Spacing::None,
-    }
-    .style()
-    .expect("Failed to mount style");
-    let justify_content_style = match justify_content {
-        Some(jc) => jc,
-        None => &JustifyContent::Center,
-    }
-    .style()
-    .expect("Failed to mount style");
+    let spacing_style = spacing.style().unwrap();
+    let justify_content_style = justify_content.style().unwrap();
 
     html! {
-        <>
-            <div class={vec!(container_style, spacing_style, justify_content_style)}>
-                { for children.iter() }
-            </div>
-        </>
+        <div class={vec!(container_style, spacing_style, justify_content_style)}>
+            { for children.iter() }
+        </div>
     }
 }
