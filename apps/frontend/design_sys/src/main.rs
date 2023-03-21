@@ -1,6 +1,7 @@
 mod layout;
 mod pages;
 
+use pages::app_textarea_page::AppTextareaPage;
 use pages::app_typography_page::AppTypographyPage;
 use pages::home_page::Home;
 use pages::stack_page::StackPage;
@@ -24,6 +25,8 @@ enum Route {
     AppBox,
     #[at("/ui/AppInput")]
     AppInput,
+    #[at("/ui/AppTextarea")]
+    AppTextarea,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -52,6 +55,7 @@ fn switch(routes: Route) -> Html {
         Route::Stack => html! { <StackPage /> },
         Route::AppBox => html! { <AppBoxPage /> },
         Route::AppInput => html! { <AppInputPage /> },
+        Route::AppTextarea => html! { <AppTextareaPage /> },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
 }
