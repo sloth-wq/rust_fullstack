@@ -5,7 +5,7 @@ use pages::app_typography_page::AppTypographyPage;
 use pages::home_page::Home;
 use pages::stack_page::StackPage;
 use pages::{
-    app_box_page::AppBoxPage, app_button_page::AppButtonPage, string_input_page::StringInputPage,
+    app_box_page::AppBoxPage, app_button_page::AppButtonPage, app_input_page::AppInputPage,
 };
 use yew::prelude::{function_component, html, Html};
 use yew_router::prelude::*;
@@ -22,8 +22,8 @@ enum Route {
     Stack,
     #[at("/ui/AppBox")]
     AppBox,
-    #[at("/ui/StringInput")]
-    StringInput,
+    #[at("/ui/AppInput")]
+    AppInput,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -51,7 +51,7 @@ fn switch(routes: Route) -> Html {
         Route::AppTypography => html! { <AppTypographyPage /> },
         Route::Stack => html! { <StackPage /> },
         Route::AppBox => html! { <AppBoxPage /> },
-        Route::StringInput => html! { <StringInputPage /> },
+        Route::AppInput => html! { <AppInputPage /> },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
 }

@@ -23,8 +23,8 @@ pub struct Props {
     pub on_input: Callback<InputEvent>,
 }
 
-#[function_component(StringInput)]
-pub fn string_input(
+#[function_component(AppInput)]
+pub fn app_input(
     Props {
         _type,
         disabled,

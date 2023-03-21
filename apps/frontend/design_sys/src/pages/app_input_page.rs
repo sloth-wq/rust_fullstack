@@ -2,16 +2,16 @@ use crate::layout::layout::DefaultLayout;
 use apps_frontend_package_ui::app_box::{AppBox, Padding};
 use apps_frontend_package_ui::stack::{Spacing, VStack};
 use apps_frontend_package_ui::{
+    app_input::AppInput,
     app_typography::{AppTypography, Color, Tag},
-    string_input::StringInput,
 };
 use wasm_bindgen::JsCast;
 use web_sys::HtmlInputElement;
 use yew::prelude::{function_component, html, Callback, Html};
 use yew::{use_state, InputEvent};
 
-#[function_component(StringInputPage)]
-pub fn string_input_page() -> Html {
+#[function_component(AppInputPage)]
+pub fn app_input_page() -> Html {
     let handler1 = use_state(|| "".to_string());
     let callback1 = {
         let _handler = handler1.clone();
@@ -82,7 +82,7 @@ pub fn string_input_page() -> Html {
                                 <AppTypography value="Type" tag={Tag::H3} />
                                 <AppTypography value="Html input type ( default text )" tag={Tag::P} color={Color::Gray} />
                                 <AppBox>
-                                    <StringInput on_input={callback1.clone()} />
+                                    <AppInput on_input={callback1.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler1}
@@ -92,14 +92,14 @@ pub fn string_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Disabled" tag={Tag::H3} />
                                 <AppBox>
-                                    <StringInput disabled={true} on_input={callback1.clone()} />
+                                    <AppInput disabled={true} on_input={callback1.clone()} />
                                 </AppBox>
                             </AppBox>
 
                             <AppBox>
                                 <AppTypography value="Placeholder" tag={Tag::H3} />
                                 <AppBox>
-                                    <StringInput placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
+                                    <AppInput placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler2}
@@ -109,7 +109,7 @@ pub fn string_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Error" tag={Tag::H3} />
                                 <AppBox>
-                                    <StringInput is_error={true} on_input={callback3.clone()} />
+                                    <AppInput is_error={true} on_input={callback3.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler3}
