@@ -62,9 +62,9 @@ pub fn app_input_page() -> Html {
             <DefaultLayout>
                 <VStack spacing={Spacing::Five}>
                     <AppBox>
-                        <AppTypography value="StringInput" tag={Tag::H1} />
-                        <AppTypography value="StringInput module is apps_frontend_package_ui::string_input::*" tag={Tag::P} color={Color::Gray} />
-                        <AppTypography value="This page module is apps_frontend_design_sys::string_input_page::*" tag={Tag::P} color={Color::Gray} />
+                        <AppTypography value="AppInput" tag={Tag::H1} />
+                        <AppTypography value="AppInput module is apps_frontend_package_ui::app_input::*" tag={Tag::P} color={Color::Gray} />
+                        <AppTypography value="This page module is apps_frontend_design_sys::app_input_page::*" tag={Tag::P} color={Color::Gray} />
                     </AppBox>
 
                     <AppBox>
@@ -82,7 +82,7 @@ pub fn app_input_page() -> Html {
                                 <AppTypography value="Type" tag={Tag::H3} />
                                 <AppTypography value="Html input type ( default text )" tag={Tag::P} color={Color::Gray} />
                                 <AppBox>
-                                    <AppInput value={"".to_string()} on_input={callback1.clone()} />
+                                    <AppInput value={String::from(&*handler1)} on_input={callback1.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler1}
@@ -92,14 +92,14 @@ pub fn app_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Disabled" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput value={"".to_string()} disabled={true} on_input={callback1.clone()} />
+                                    <AppInput value={"Disabled".to_string()} disabled={true} on_input={callback1.clone()} />
                                 </AppBox>
                             </AppBox>
 
                             <AppBox>
                                 <AppTypography value="Placeholder" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput value={"".to_string()} placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
+                                    <AppInput value={String::from(&*handler2)} placeholder={"Placeholder".to_string()} on_input={callback2.clone()} />
                                 </AppBox>
                                 <AppBox>
                                     {"Input Text: "}{&*handler2}
@@ -109,11 +109,11 @@ pub fn app_input_page() -> Html {
                             <AppBox>
                                 <AppTypography value="Error" tag={Tag::H3} />
                                 <AppBox>
-                                    <AppInput value={"".to_string()} is_error={true} on_input={callback3.clone()} />
+                                    <AppInput value={String::from(&*handler3)} is_error={true} on_input={callback3.clone()} />
                                 </AppBox>
-                                <AppBox>
-                                    {"Input Text: "}{&*handler3}
-                                </AppBox>
+                                    <AppBox>
+                                        {"Input Text: "}{&*handler3}
+                                    </AppBox>
                             </AppBox>
                         </VStack>
                     </AppBox>

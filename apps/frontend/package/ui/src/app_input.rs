@@ -52,10 +52,14 @@ pub fn app_input(
         font-size: 16px;
         outline: #19191C;
         padding: 8px;
+        ::placeholder {
+            color: #757578;
+        }
         :disabled {
             border: #949497 1.5px solid;
             outline: #949497;
             cursor: not-allowed;
+            color: #949497;
         }
         :focus {
             border: #D18E0F 1.5px solid;
