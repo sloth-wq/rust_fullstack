@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 stylist = { version = "0.12.0", features = ["yew_integration"] }
 yew = { version = "0.20.0", features = ["csr"] }
+strum = "0.24"
+strum_macros = "0.24"

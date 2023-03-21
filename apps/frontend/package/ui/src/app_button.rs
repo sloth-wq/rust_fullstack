@@ -151,6 +151,8 @@ pub fn app_button(
         :disabled {
             cursor: not-allowed;
         }
+        font-size: 16px;
+        font-weight: bold;
     "#
     )
     .expect("Failed to mount style");
