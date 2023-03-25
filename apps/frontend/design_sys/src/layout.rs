@@ -20,6 +20,7 @@ pub mod layout {
             "AppBox",
             "AppInput",
             "AppTextarea",
+            "AppCheckbox",
         ];
 
         let sidebar_style = style!(

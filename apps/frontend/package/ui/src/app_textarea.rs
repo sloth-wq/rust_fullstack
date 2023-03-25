@@ -52,6 +52,7 @@ pub fn app_textarea(
         font-size: 16px;
         outline: #19191C;
         padding: 8px;
+        width: 100%;
         ::placeholder {
             color: #757578;
         }
