@@ -97,7 +97,7 @@ pub mod layout {
         html!(
             <>
                 <div class={sidebar_style}>
-                    <div><a class={logo_style} href="/">{"Design System"}</a></div>
+                    <div><a class={logo_style} href="/">{"Docs"}</a></div>
                     <ul class={list_style}>
                         {link_items.iter().map(|item| html!(
                             <li class={list_item_style.clone()}><a class={link_style.clone()} href={format!("/ui/{}", &item)}>{&item}</a></li>

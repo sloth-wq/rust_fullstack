@@ -7,7 +7,7 @@ pub fn home() -> Html {
     html!(
         <>
             <DefaultLayout>
-                <AppTypography value={"Welcome to Design System!"} tag={Tag::H1} />
+                <AppTypography value={"Welcome to Docs!"} tag={Tag::H1} />
             </DefaultLayout>
         </>
     )

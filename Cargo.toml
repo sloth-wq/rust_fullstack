@@ -6,9 +6,8 @@ edition = "2021"
 [workspace]
 members = [
     "apps/backend",
-    "apps/frontend/admin",
-    "apps/frontend/design_sys",
-    "apps/frontend/employee",
+    "apps/frontend/web",
+    "apps/frontend/docs",
     "apps/frontend/package/ui",
     "apps/shared",
     "migration",

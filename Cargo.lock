@@ -340,17 +340,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "apps_frontend_admin"
-version = "0.1.0"
-dependencies = [
- "apps_frontend_package_ui",
- "apps_shared",
- "stylist",
- "yew",
-]
-
-[[package]]
-name = "apps_frontend_design_sys"
+name = "apps_frontend_docs"
 version = "0.1.0"
 dependencies = [
  "apps_frontend_package_ui",
@@ -363,21 +353,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "apps_frontend_employee"
-version = "0.1.0"
-dependencies = [
- "apps_frontend_package_ui",
- "apps_shared",
- "stylist",
- "yew",
-]
-
-[[package]]
 name = "apps_frontend_package_ui"
 version = "0.1.0"
 dependencies = [
  "strum",
  "strum_macros",
+ "stylist",
+ "yew",
+]
+
+[[package]]
+name = "apps_frontend_web"
+version = "0.1.0"
+dependencies = [
+ "apps_frontend_package_ui",
+ "apps_shared",
  "stylist",
  "yew",
 ]

@@ -6,20 +6,15 @@ tasks:
     cmds:
       - cargo run build
 
-  run:admin:
-    desc: 管理画面を立ち上げる.
+  run:web:
+    desc: web 画面を立ち上げる.
     cmds:
-      - trunk serve apps/frontend/admin/index.html --port 4000 -w apps/frontend/admin -w apps/shared -w apps/frontend/package
+      - trunk serve apps/frontend/web/index.html --port 4000 -w apps/frontend/web -w apps/shared -w apps/frontend/package
 
-  run:employee:
-    desc: 従業員画面を立ち上げる.
+  run:docs:
+    desc: docs を立ち上げる.
     cmds:
-      - trunk serve apps/frontend/employee/index.html --port 4001 -w apps/frontend/employee -w apps/shared -w apps/frontend/package
-
-  run:design_sys:
-    desc: デザインシステムを立ち上げる.
-    cmds:
-      - trunk serve apps/frontend/design_sys/index.html --port 4002 -w apps/frontend/design_sys -w apps/shared -w apps/frontend/package
+      - trunk serve apps/frontend/docs/index.html --port 4002 -w apps/frontend/docs -w apps/shared -w apps/frontend/package
 
   run:backend:
     desc: API環境を立ち上げる.
