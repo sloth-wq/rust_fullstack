@@ -2,6 +2,7 @@ mod layout;
 mod pages;
 
 use pages::app_checkbox_page::AppCheckboxPage;
+use pages::app_radio_group_page::AppRadioGroupPage;
 use pages::app_textarea_page::AppTextareaPage;
 use pages::app_typography_page::AppTypographyPage;
 use pages::home_page::Home;
@@ -30,6 +31,8 @@ enum Route {
     AppTextarea,
     #[at("/ui/AppCheckbox")]
     AppCheckbox,
+    #[at("/ui/AppRadioGroup")]
+    AppRadioGroup,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -60,6 +63,7 @@ fn switch(routes: Route) -> Html {
         Route::AppInput => html! { <AppInputPage /> },
         Route::AppTextarea => html! { <AppTextareaPage /> },
         Route::AppCheckbox => html! { <AppCheckboxPage /> },
+        Route::AppRadioGroup => html! { <AppRadioGroupPage /> },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
 }

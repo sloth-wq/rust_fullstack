@@ -3,6 +3,8 @@ use yew::html::onchange::Event;
 use yew::prelude::{html, Html, Properties};
 use yew::{function_component, Callback};
 
+// TODO: エラー時のスタイル.
+
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub label: String,
@@ -43,6 +45,7 @@ pub fn app_checkbox(
 
     let label_style = style!(
         r#"
+        width: 100%;
         margin: 0;
         display: block;
         padding-left: 12px;
