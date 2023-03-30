@@ -11,15 +11,14 @@ services:
     command: /usr/local/bin/app
   db:
     container_name: db
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: passw0rd
-      TZ: "Asia/Tokyo"
+    build: ./docker/db
     ports:
-      - 15432:5432
+      - "13307:3306"
     volumes:
-      - db-data:/var/lib/postgresql/data
-      - ./docker-entrypoint-initdb.d/db:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/mysql
+      - ./docker/db/sql:/docker-entrypoint-initdb.d
+    tty: true
+    restart: always
+    platform: linux/x86_64
 volumes:
   db-data:

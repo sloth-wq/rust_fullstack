@@ -20,4 +20,7 @@ tasks:
     desc: API環境を立ち上げる.
     cmds:
       - docker compose up db -d
-      - cargo watch -s "cargo run -p apps_backend"
+      - "
+        DATABASE_URL=mysql://app_user:app_password@localhost:13307/app \
+        cargo watch -s \"cargo run -p apps_backend\"
+        "
