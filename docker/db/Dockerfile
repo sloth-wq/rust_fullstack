@@ -1,4 +1,4 @@
-FROM mysql:8.0.28
+FROM mysql:8.0.32
 
 RUN apt-get update \
     && apt-get -y install locales-all
