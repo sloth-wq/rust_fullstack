@@ -16,7 +16,7 @@ jobs:
     env:
       RUSTC_FORCE_INCREMENTAL: 1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/cache_cargo
       - name: build
         run: cargo build
@@ -26,7 +26,7 @@ jobs:
     timeout-minutes: 10
     needs: build_cache
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get Rust toolchain version
         id: rust-toolchain
         run: |
@@ -49,7 +49,7 @@ jobs:
       RUSTC_FORCE_INCREMENTAL: 1
     needs: build_cache
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get Rust toolchain version
         id: rust-toolchain
         run: |
@@ -83,7 +83,7 @@ jobs:
     steps:
       - name: create database for test
         run: PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE test"
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/cache_cargo
       - name: test
         run: cargo test --all -- --nocapture
